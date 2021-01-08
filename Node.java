@@ -1,9 +1,9 @@
 public class Node{
   
   public Node(String value){
-    data = value;
-    next = null;
-    prev = null;
+    this.data = value;
+    this.next = null;
+    this.prev = null;
   }
   private String data;
   private Node next,prev;
@@ -18,5 +18,9 @@ public class Node{
   
   public Node getPrev(){
     return prev;
+  }
+  
+  public void setData(String data){
+    this.data = data;
   }
 }
