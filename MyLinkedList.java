@@ -39,7 +39,14 @@ public class MyLinkedList extends Node{
     current.setNext(value);
     size++  
   }
-  public String get(int index);
+  public String get(int index){
+    int move = index;
+    while (move != 0){
+      current = current.getNext();
+      move--;
+    }
+    return current;
+  }
   public String set(int index, String value);
   public String toString();
 
