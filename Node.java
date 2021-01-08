@@ -12,4 +12,7 @@ public class Node{
     return data;
   }
   
+  public Node getNext(){
+    return next;
+  }
 }
