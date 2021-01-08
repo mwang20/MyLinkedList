@@ -23,4 +23,8 @@ public class Node{
   public void setData(String data){
     this.data = data;
   }
+  
+  public void setNet(Node next){
+    this.next = next;
+  }
 }
