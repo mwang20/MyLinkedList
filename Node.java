@@ -24,7 +24,12 @@ public class Node{
     this.data = data;
   }
   
-  public void setNet(Node next){
+  public void setNext(Node next){
     this.next = next;
   }
+  
+  public void setPrev(Node prev){
+    this.prev = prev;
+  }
+  
 }
