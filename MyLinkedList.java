@@ -36,6 +36,11 @@ public class MyLinkedList{
     }
     Node node = new Node(value);
     Node current = end;
+    if (index == size){
+      end.setPrev(end);
+      end.setNext(node);
+      end = node;
+    }
     for (int i = size - 1; i >= index; i--){
       current.setNext(current);
       current = current.getPrev();
@@ -82,14 +87,10 @@ public class MyLinkedList{
   public String toString(){
     String listString = "[";
     Node current = start;
-    for (int i = 0; i < size; i++){
-      if (i == size - 1){
-        listString += current.getData();
-      }
-      else {
-        listString += current.getData() + ", ";
-      }
+    listString += current.getData();
+    while (current.getNext() != null){
       current = current.getNext();
+      listString += ", " + current.getData();
     }
     return listString + "]";
   }
@@ -97,14 +98,10 @@ public class MyLinkedList{
   public String toStringReversed(){
     String listString = "[";
     Node current = end;
-    for (int i = size - 1; i >= 0; i--){
-      if (i == 0){
-        listString += current;
-      }
-      else {
-        listString += current + ", ";
-      }
+    listString += current.getData();
+    while (current.getPrev() != null){
       current = current.getPrev();
+      listString += ", " + current.getData();
     }
     return listString + "]";
   }
