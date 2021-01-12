@@ -63,7 +63,7 @@ public class MyLinkedList{
     }
     int move = index;
     Node current = start;
-    while (move != 0){
+    while (move >= 0){
       current = current.getNext();
       move--;
     }
@@ -125,7 +125,8 @@ public class MyLinkedList{
       move--;
     }
     String removed = current.getData();
-    current.setData(null);
+    current.getPrev().setNext(current.getNext());
+    current.getNext().setPrev(current.getPrev());
     size--;
     return removed;  
   }
