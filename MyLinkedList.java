@@ -119,4 +119,16 @@ public class MyLinkedList{
     size--;
     return removed;  
   }
+  
+  public int getSize(){
+    return size;
+  }
+  
+  public void extend(MyLinkedList other){
+    for (int i = 0; i < other.getSize(); i++){
+      String removed = other.get(i);
+      other.remove(i);
+      add(removed);
+    }
+  }
 }
