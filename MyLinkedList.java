@@ -87,6 +87,9 @@ public class MyLinkedList{
   public String toString(){
     String listString = "[";
     Node current = start;
+    if (size == 0){
+      return "[]";
+    }
     listString += current.getData();
     while (current.getNext() != null){
       current = current.getNext();
@@ -98,6 +101,9 @@ public class MyLinkedList{
   public String toStringReversed(){
     String listString = "[";
     Node current = end;
+    if (size == 0){
+      return "[]";
+    }
     listString += current.getData();
     while (current.getPrev() != null){
       current = current.getPrev();
