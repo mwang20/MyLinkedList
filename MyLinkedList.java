@@ -19,7 +19,7 @@ public class MyLinkedList{
     if (size == 0){
       start = end = node;
       start.setPrev(null);
-      start.setNext(null);
+      start.setNext(node);
       size ++;
     }
     else {
@@ -32,7 +32,7 @@ public class MyLinkedList{
   
   public void add(int index, String value){
     if (index > size){
-      throw new IllegalArgumentException();
+      throw new IndexOutOfBoundsException();
     }
     Node node = new Node(value);
     int move = index;
@@ -46,6 +46,9 @@ public class MyLinkedList{
   }
   
   public String get(int index){
+    if (index > size){
+      throw new IndexOutOfBoundsException();
+    }
     int move = index;
     Node current = start;
     while (move != 0){
@@ -57,7 +60,7 @@ public class MyLinkedList{
   
   public String set(int index, String value){
     if (index > size){
-      throw new IllegalArgumentException();
+      throw new IndexOutOfBoundsException();
     }
     Node node = new Node(value);
     int move = index;
@@ -99,5 +102,21 @@ public class MyLinkedList{
       current = current.getPrev();
     }
     return listString + "]";
+  }
+  
+  public String remove(int index){
+    if (index > size){
+      throw new IndexOutOfBoundsException();
+    }
+    int move = index;
+    Node current = start;
+    while (move != 0){
+      current = current.getNext();
+      move--;
+    }
+    String removed = current.getData();
+    current.setData(null);
+    size--;
+    return removed;  
   }
 }
