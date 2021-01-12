@@ -85,4 +85,19 @@ public class MyLinkedList{
     }
     return listString + "]";
   }
+
+  public String toStringReversed(){
+    String listString = "[";
+    Node current = end;
+    for (int i = size - 1; i >= 0; i++){
+      if (i == 0){
+        listString += current.getData();
+      }
+      else {
+        listString += current.getData() + ", ";
+      }
+      current = current.getPrev();
+    }
+    return listString + "]";
+  }
 }
