@@ -25,6 +25,7 @@ public class MyLinkedList{
       end.setPrev(end);
       end.setNext(node);
       end = node;
+      end.setNext(null);
     }
     size++;
     return true;
@@ -40,6 +41,7 @@ public class MyLinkedList{
       end.setPrev(end);
       end.setNext(node);
       end = node;
+      end.setNext(null);
     }
     for (int i = size - 1; i >= index; i--){
       current.setNext(current);
