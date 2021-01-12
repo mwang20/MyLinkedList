@@ -2,8 +2,6 @@ public class Node{
   
   public Node(String value){
     this.data = value;
-    this.next = null;
-    this.prev = null;
   }
   private String data;
   private Node next,prev;
