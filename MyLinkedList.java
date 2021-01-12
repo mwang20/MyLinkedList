@@ -23,6 +23,7 @@ public class MyLinkedList{
       size ++;
     }
     else {
+      end.setPrev(end);
       end.setNext(node);
       end = node;
       size++;
@@ -35,14 +36,18 @@ public class MyLinkedList{
       throw new IndexOutOfBoundsException();
     }
     Node node = new Node(value);
-    int move = index;
-    Node current = start;
-    while (move != 0){
-      current = current.getNext();
-      move--;
+    Node current = end;
+    for (int i = size - 1; i >= index; i--){
+      current.setNext(current);
+      current = current.getPrev();
+      current.setPrev(current.getPrev());
+      if (i == index){
+        current.setNext(current);
+        Node previous = current.getPrev();
+        current = node;
+        current.setPrev(previous);  
+      }
     }
-    current.setData(value);
-    size++;
   }
   
   public String get(int index){
