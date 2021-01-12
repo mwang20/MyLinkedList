@@ -20,14 +20,13 @@ public class MyLinkedList{
       start = end = node;
       start.setPrev(null);
       start.setNext(node);
-      size ++;
     }
     else {
       end.setPrev(end);
       end.setNext(node);
       end = node;
-      size++;
     }
+    size++;
     return true;
   }
   
@@ -48,6 +47,7 @@ public class MyLinkedList{
         current.setPrev(previous);  
       }
     }
+    size++;
   }
   
   public String get(int index){
@@ -97,12 +97,12 @@ public class MyLinkedList{
   public String toStringReversed(){
     String listString = "[";
     Node current = end;
-    for (int i = size - 1; i >= 0; i++){
+    for (int i = size - 1; i >= 0; i--){
       if (i == 0){
-        listString += current.getData();
+        listString += current;
       }
       else {
-        listString += current.getData() + ", ";
+        listString += current + ", ";
       }
       current = current.getPrev();
     }
