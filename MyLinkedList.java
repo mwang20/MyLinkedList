@@ -37,22 +37,24 @@ public class MyLinkedList{
     }
     Node node = new Node(value);
     Node current = end;
+    int move = size;
     if (index == size){
       end.setPrev(end);
       end.setNext(node);
       end = node;
       end.setNext(null);
     }
-    for (int i = size - 1; i >= index; i--){
+    while (move >= index){
       current.setNext(current);
       current = current.getPrev();
       current.setPrev(current.getPrev());
-      if (i == index){
+      if (move == index){
         current.setNext(current);
         Node previous = current.getPrev();
         current = node;
         current.setPrev(previous);  
       }
+      move--;
     }
     size++;
   }
