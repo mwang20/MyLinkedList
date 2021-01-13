@@ -18,14 +18,11 @@ public class MyLinkedList{
     Node node = new Node(value);
     if (size == 0){
       start = end = node;
-      start.setPrev(null);
-      start.setNext(node);
     }
     else {
-      end.setPrev(end);
+      end.getNext().setPrev(end);
       end.setNext(node);
       end = node;
-      end.setNext(null);
     }
     size++;
     return true;
