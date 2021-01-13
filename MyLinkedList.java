@@ -35,11 +35,15 @@ public class MyLinkedList{
     Node node = new Node(value);
     Node current = end;
     int move = size;
-    if (index == size){
-      end.setPrev(end);
+    if (size == index){
+      end.getNext().setPrev(end);
       end.setNext(node);
       end = node;
-      end.setNext(null);
+    }
+    if (index == 0) {
+      node.setNext(start);
+      start.setPrev(node);
+      start = node;
     }
     while (move >= index){
       current.setNext(current);
